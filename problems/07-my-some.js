@@ -23,8 +23,15 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
 console.log(result3);   // true
 *******************************************************************************/
 
-let mySome = function() {
-
+let mySome = function (array, cb) {
+    let result = false;
+    for (let i = 0; i < array.length; i++) {
+        let currentEl = array[i];
+        if (cb(currentEl, i)) {
+            result = true;
+        }
+    }
+    return result;
 };
 
 

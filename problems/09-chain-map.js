@@ -29,13 +29,17 @@ console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
-let chainMap = function() {
+let chainMap = function (value, ...cbArray) {
+    let result = 0;
+    let newValue = value;
 
+    for (let index = 0; index < cbArray.length; index++) {
+        let currentEl = cbArray[index];
+        result = currentEl(newValue);
+        newValue = result;
+    }
+    return result;
 };
-
-
-
-
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
